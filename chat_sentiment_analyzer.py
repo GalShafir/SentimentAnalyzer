@@ -69,7 +69,7 @@ def create_graph(dataframe):
 
     # Add x-axis and y-axis
     ax.plot(dataframe['createdAt'],
-            dataframe['sentiment'],
+            dataframe['average_sentiment'],
             color='purple')
 
     # Set title and labels for axes
@@ -77,37 +77,45 @@ def create_graph(dataframe):
            ylabel="Sentiment ",
            title="Sentiment Change over time")
 
-    plt.gca().invert_yaxis()
+    # plt.gca().invert_yaxis()
     plt.show()
 
 
 def main():
-
-    # making dataframe
-    #csv_file_name = r"Archive\Global Surface Temperature Change for February_7870804823.csv"
 
     if len(sys.argv) != 2:
         print("Please enter a csv file wrapped with quotes")
         exit()
 
     csv_file_name = sys.argv[1]
-    df = pd.read_csv(csv_file_name)
 
-    # output the dataframe
-    print(df)
+    print("Loading the data frame...")
+    df = pd.read_csv(csv_file_name)
 
     filename = 'sentiment_analyzer_trained_model.sav'
 
     # load the model from disk
+    print("Loading the model...")
     loaded_model = pickle.load(open(filename, 'rb'))
 
+    print("Processing results...")
     results = ["1" if process_message(x, loaded_model) == "Positive" else "0" for x in df['raw_message']]
     df['sentiment'] = results
 
+    print("The data frame results:")
     print(df)
     base = os.path.basename(csv_file_name)
     new_csv_name = str(base.split(".")[0]) + "_with_sentiments.csv"
     df.to_csv(new_csv_name, encoding='utf-8', index=False)
+
+    print("Preparing graph...")
+    sum, new = 0, []
+
+    for x, y in zip(results, range(len(results))):
+        sum += int(x)
+        new.append(sum / (y+1))
+
+    df['average_sentiment'] = new
     create_graph(df)
 
 
