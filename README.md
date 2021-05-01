@@ -36,5 +36,5 @@ The model is based on Shaumik Daityari article in digitalocean.
 
 In order to use the script some libraries must be installed.
 Use the following command for downloading them:
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
