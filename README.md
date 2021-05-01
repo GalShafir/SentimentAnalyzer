@@ -30,11 +30,13 @@ Sentiments:  Positive
 This file is a model training script.
 The file is no necessary for users unless they want to improve the the model (sentiment_analyzer_trained_model.sav)
 In any other case the model is already ready for any use.
+
 The model is based on Shaumik Daityari article in digitalocean.
 
 ##### requirements
 
 In order to use the script some libraries must be installed.
 Use the following command for downloading them:
+
 ```pip install -r requirements.txt```
 
