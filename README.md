@@ -25,6 +25,11 @@ Sentiments:  Positive
 
 ``` python chat_sentiment_analyzer.py "path/to/mycsv_file.csv" ```
 
+The follwoing will get you the result (only for example):
+
+![image](https://user-images.githubusercontent.com/45572842/116785229-155ff980-aaa1-11eb-917b-962f49cd2052.png)
+
+
 ##### What is setup.py
 
 This file is a model training script.
@@ -36,7 +41,7 @@ The model is based on Shaumik Daityari article in digitalocean.
 ##### requirements
 
 In order to use the script some libraries must be installed.
-Use the following command for downloading them:
+Use the following command to download the libraries:
 
 ```pip install -r requirements.txt```
 
