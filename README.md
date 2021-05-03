@@ -3,10 +3,10 @@
 ### This project will allow you to analyze in graphical way a chat group sentiments.
 #### The projects contain two main scipts:
 
-1. A simple script that gets as an argument a message (simple string) and will return some metrics about the sentence.
+1. A simple script that gets as an argument a message (simple string) and returnד some metrics about the sentence.
    Metrics like: words count, positivity level, etc.
    
-2. A script that will get as an input a full group chat table sorted by time. the script will iterate over the table and will represent a graph of the sentiments results (positive or negative). The script will also save a new csv file with a sentiment result next to each line.
+2. A script that gets as an input a full group chat table sorted by time. the script iterates over the table and represents a graph of the sentiments results (positive or negative). The script also saves a new csv file with a sentiment result next to each line.
 
 
 ##### How to run the first script (simple_sentence_analyzer.py)
